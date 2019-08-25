@@ -1,6 +1,6 @@
 # Snippets for LaTeX
 
-Use in conjunction with _LatexTools_, _LaTeX-cwl_ and _LaTeX Snippets_
+Use in conjunction with [_LatexTools_](https://github.com/SublimeText/LaTeXTools), _LaTeX-cwl_ and _LaTeX Snippets_
 
 Some snippets are inspired by [gillescastel/latex-snippets](https://github.com/gillescastel/latex-snippets)
 
