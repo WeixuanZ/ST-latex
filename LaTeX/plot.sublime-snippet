@@ -9,12 +9,12 @@
 		xlabel= {$6}, ylabel = {$7}
 		axis lines = middle,
 	]
-	\addplot[domain=$2:$3, samples=${8:100}]{$9};
-	${10:\addlegendentry{$11}}
+	\addplot[domain=$2:$3, samples=200]{$8};
+	${9:\addlegendentry{$10}}
 	\end{axis}
 \end{tikzpicture}
-\caption{$12}
-\label{${13:$11}}
+\caption{$11}
+\label{fig:${10/\W+/-/g}}
 \end{figure}
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
