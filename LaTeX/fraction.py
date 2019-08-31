@@ -3,7 +3,7 @@ import re
 
 # Expand <letters,command,digits>/ into \frac{<stuff>}{}
 # Uses regular expression to determine which to include in the numerator
-# Implementation of Gilles Castel's code in ST
+# Inspired by Gilles Castel's code in ST
 
 
 class FractionCommand(sublime_plugin.TextCommand):
@@ -12,16 +12,15 @@ class FractionCommand(sublime_plugin.TextCommand):
 		point = view.sel()[0].b
 		line = view.substr(sublime.Region(view.line(point).a, point))
 		line = line[::-1]
-		
-		rex = re.compile(r"(((\}\d+\{|\d)(\^|_))*([A-Za-z]+)(\\)?(\d*)|(\d+))(-?)")
+		rex = re.compile(r"(((((\})(\w|\d)+(\{)|(\d|\w))(\^|_))|(\)(\w|\d)+\())*([A-Za-z]+)(\\)?([A-Za-z]?)(\d*)|(\d+))(\-?)")
 		rex2 = re.compile(r"(\s+)")
-		expr = re.match(rex, line) # have numerator and /
-		expr2 = re.match(rex2, line) # no numerator, but have /
+		expr = re.match(rex, line) # have numerator
+		expr2 = re.match(rex2, line) # no numerator, but spaces
 		
 		if expr:
 			numerator = expr.group(1)[::-1] # without the negative sign
 			# negative sign in front
-			if expr.group(9):
+			if expr.group(17):
 				numerator_region = sublime.Region(point-len(numerator)-1,point)
 				view.erase(edit, numerator_region)
 				snippet = "-\\\\frac{" + numerator + "}{$1}$0"
