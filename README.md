@@ -11,7 +11,7 @@ Use <kbd>Tab</kbd> to trigger.
 
 **ST plugin for speeding up the input of LaTeX Maths**
 
-The plugin [mathhelper.py](https://github.com/WeixuanZ/ST-snippets/blob/master/LaTeX/mathhelper.py) should be placed directly under `Packages/User/` and add the following to key-map settings.
+The plugin [mathhelper.py](https://github.com/WeixuanZ/ST-LaTeX/blob/master/mathhelper.py) should be placed directly under `Packages/User/` and add the following to key-map settings.
 ```JSON
   {
     "keys": [
