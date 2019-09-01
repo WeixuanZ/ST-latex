@@ -113,7 +113,7 @@ class FractionCommand(sublime_plugin.TextCommand):
 			sublime.status_message("Fraction expanded")
 
 		else:
-			snippet = "\\\\frac{$1}{$2}$0". # add an empty \frac{}{}
+			snippet = "\\\\frac{$1}{$2}$0"  # add an empty \frac{}{}
 			view.run_command("insert_snippet", {'contents' : snippet})
 			sublime.status_message("WARNING: no numerator detected")
 
