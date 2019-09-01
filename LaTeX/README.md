@@ -65,9 +65,10 @@ The plugin [mathhelper.py](https://github.com/WeixuanZ/ST-snippets/blob/master/L
   }
 ```
 
-* Automatically surround superscripts or subscripts with more that two digits with { }
+* Automatically surround superscripts or subscripts with more that two digits with `{` `}`
 
-* Add `\left` and `\right` in front of a pair of matching brackets using <kbd>⌘+l,b</kbd>
+* Add `\left` and `\right` in front of a pair of matching brackets using <kbd>⌘</kbd>+<kbd>l</kbd>,<kbd>b</kbd>
 
 * Fraction expansion is triggered by double hitting <kbd>/</kbd> in math environments, the railroad diagram of the regular expression behind it is shown below
+`(((((\})([A-Za-z]|\d)+(\{)|(\d|[A-Za-z]))(\^|_))|(\)([A-Za-z]|\d)+\()|(}([A-Za-z]|\d)+{))*([A-Za-z]+)(\\)?([A-Za-z]?)(\d*)|(\d+))(\-?)`
   ![](image.png)
