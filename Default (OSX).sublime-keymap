@@ -1,0 +1,383 @@
+[
+
+  // align tabs
+  {
+    "keys": [
+      "super+l",
+      "f"
+    ],
+    "command": "align_tab",
+    "caption": "Align Tabular",
+    "args": {
+      "user_input": "\\&"
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.tex.latex meta.environment.tabular"
+      }
+    ]
+  },
+  {
+    "keys": [
+      "super+l",
+      "f"
+    ],
+    "command": "align_tab",
+    "caption": "Align Maths",
+    "args": {
+      "user_input": "\\&"
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.tex.latex meta.environment.math.block.be"
+      }
+    ]
+  },
+
+  // math helper
+  {
+    "keys": [
+      "super+r"
+    ],
+    "command": "show_overlay",
+    "args": {
+      "overlay": "goto",
+      "text": "@"
+    }
+  },
+  {
+    "keys": [
+      "/",
+      "/"
+    ],
+    "args": {
+      "file": "Packages/User/mathhelper.py"
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.tex.latex meta.environment.math"
+      }
+    ],
+    "command": "fraction"
+  },
+  {
+    "keys": [
+      " "
+    ],
+    "args": {
+      "file": "Packages/User/mathhelper.py"
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.tex.latex meta.environment.math"
+      }
+    ],
+    "command": "sscript"
+  },
+  {
+    "keys": [
+      "super+l",
+      "b"
+    ],
+    "args": {
+      "file": "Packages/User/mathhelper.py"
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.tex.latex meta.environment.math"
+      }
+    ],
+    "command": "lrbrackets"
+  },
+  {
+    "keys": [
+      " "
+    ],
+    "args": {
+      "file": "Packages/User/mathhelper.py"
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.tex.latex meta.environment.math"
+      }
+    ],
+    "command": "sscript"
+  },
+  {
+    "keys": [
+      "enter"
+    ],
+    "command": "chain",
+    "args": {
+      "commands": [
+        [
+          "intertext"
+        ],
+        [
+          "reindent"
+        ]
+      ]
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.tex.latex meta.environment.math.block.be.latex"
+      }
+    ]
+  },
+
+  // super+l,super+shift+l to change environment; escape to return
+  {
+    "keys": [
+      "super+l",
+      "super+shift+n"
+    ],
+    "command": "chain",
+    "args": {
+      "commands": [
+        [
+          "toggle_setting",
+          {
+            "setting": "custom_change_env"
+          }
+        ],
+        [
+          "selection_fields",
+          {
+            "mode": "add"
+          }
+        ],
+        [
+          "latex_change_environment"
+        ]
+      ]
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.tex.latex"
+      }
+    ]
+  },
+  {
+    "keys": [
+      "escape"
+    ],
+    "command": "chain",
+    "args": {
+      "commands": [
+        [
+          "toggle_setting",
+          {
+            "setting": "custom_change_env"
+          }
+        ],
+        [
+          "selection_fields",
+          {
+            "mode": "pop",
+            "only_other": true
+          }
+        ]
+      ]
+    },
+    "context": [
+      {
+        "key": "setting.custom_change_env"
+      },
+      {
+        "key": "auto_complete_visible",
+        "operator": "equal",
+        "operand": false
+      }
+    ]
+  },
+
+  // tikz completion
+  {
+    "keys": [
+      " "
+    ],
+    "command": "chain",
+    "args": {
+      "commands": [
+        [
+          "insert_snippet",
+          {
+            "contents": " ($1,$2) $0"
+          }
+        ]
+      ]
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operand": "text.tex.latex"
+      },
+      {
+        "key": "preceding_text",
+        "operator": "regex_contains",
+        "operand": "\\s*\\\\draw$",
+        "match_all": true
+      },
+      {
+        "key": "selection_empty",
+        "operator": "equal",
+        "operand": true,
+        "match_all": true
+      }
+    ]
+  },
+  {
+    "keys": [
+      " "
+    ],
+    "command": "chain",
+    "args": {
+      "commands": [
+        [
+          "insert_snippet",
+          {
+            "contents": " (${1:radius});$0"
+          }
+        ]
+      ]
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operand": "text.tex.latex"
+      },
+      {
+        "key": "preceding_text",
+        "operator": "regex_contains",
+        "operand": "\\s*\\\\draw\\s*\\(\\d+,\\d+\\)\\s*circle",
+        "match_all": true
+      },
+      {
+        "key": "selection_empty",
+        "operator": "equal",
+        "operand": true,
+        "match_all": true
+      }
+    ]
+  },
+  {
+    "keys": [
+      " "
+    ],
+    "command": "chain",
+    "args": {
+      "commands": [
+        [
+          "insert_snippet",
+          {
+            "contents": " (${1:start_angle}:${2:end_angle}:${3:radius});$0"
+          }
+        ]
+      ]
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operand": "text.tex.latex"
+      },
+      {
+        "key": "preceding_text",
+        "operator": "regex_contains",
+        "operand": "\\s*\\\\draw\\s*\\(\\d+,\\d+\\)\\s*arc",
+        "match_all": true
+      },
+      {
+        "key": "selection_empty",
+        "operator": "equal",
+        "operand": true,
+        "match_all": true
+      }
+    ]
+  },
+
+  //snippets
+  {
+    "keys": [
+      "tab"
+    ],
+    "command": "chain",
+    "args": {
+      "commands": [
+        [
+          "delete_word",
+          {
+            "forward": false
+          }
+        ],
+        [
+          "insert_snippet",
+          {
+            "contents": "\\because"
+          }
+        ]
+      ]
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operand": "text.tex.latex meta.environment.math.block.be.latex"
+      },
+      {
+        "key": "preceding_text",
+        "operator": "regex_contains",
+        "operand": "as",
+        "match_all": true
+      }
+    ]
+  },
+  {
+    "keys": [
+      "tab"
+    ],
+    "command": "chain",
+    "args": {
+      "commands": [
+        [
+          "delete_word",
+          {
+            "forward": false
+          }
+        ],
+        [
+          "insert_snippet",
+          {
+            "contents": "\\therefore"
+          }
+        ]
+      ]
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operand": "text.tex.latex meta.environment.math.block.be.latex"
+      },
+      {
+        "key": "preceding_text",
+        "operator": "regex_contains",
+        "operand": "so",
+        "match_all": true
+      }
+    ]
+  }
+]

@@ -120,3 +120,28 @@ class FractionCommand(sublime_plugin.TextCommand):
 
 
 
+# Automatically wrap lines begin with two or more letters with \intertext{} command in align environments
+# Map enter to this command, and use ChainOfCommands plugin to add reindent command afterwards
+
+class IntertextCommand(sublime_plugin.TextCommand):
+	def run(self, edit, **args):
+		view = self.view
+		point = view.sel()[0].b
+		line = view.substr(sublime.Region(view.line(point).a, point))
+
+		rex = re.compile(r"\s*([A-Za-z]{2,}\w*)")
+		expr = re.match(rex, line)
+
+		if expr:
+			text = expr.group(1)
+			view.insert(edit,point-len(text),"\\intertext{")
+			view.insert(edit,point+11,"}\n")
+		else:
+			view.insert(edit,point,"\n")  # normal behaviour of enter key
+
+
+
+
+
+
+
