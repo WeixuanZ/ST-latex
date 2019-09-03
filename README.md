@@ -15,16 +15,6 @@ The plugin [mathhelper.py](https://github.com/WeixuanZ/ST-LaTeX/blob/master/math
 ```JSON
   {
     "keys": [
-      "super+r"
-    ],
-    "command": "show_overlay",
-    "args": {
-      "overlay": "goto",
-      "text": "@"
-    }
-  },
-  {
-    "keys": [
       "/",
       "/"
     ],
