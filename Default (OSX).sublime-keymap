@@ -1,5 +1,4 @@
 [
-
   // align tabs
   {
     "keys": [
@@ -37,8 +36,6 @@
       }
     ]
   },
-
-  // math helper
   {
     "keys": [
       "super+r"
@@ -49,6 +46,8 @@
       "text": "@"
     }
   },
+  
+  // math helper
   {
     "keys": [
       "/",
