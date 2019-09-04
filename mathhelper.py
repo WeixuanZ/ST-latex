@@ -129,7 +129,7 @@ class IntertextCommand(sublime_plugin.TextCommand):
 		point = view.sel()[0].b
 		line = view.substr(sublime.Region(view.line(point).a, point))
 
-		rex = re.compile(r"\s*([A-Za-z]{2,}\w*)")
+		rex = re.compile(r"^\s*([A-Za-z]{2,}.*)")
 		expr = re.match(rex, line)
 
 		if expr:
@@ -137,7 +137,7 @@ class IntertextCommand(sublime_plugin.TextCommand):
 			view.insert(edit,point-len(text),"\\intertext{")
 			view.insert(edit,point+11,"}\n")
 		else:
-			view.insert(edit,point,"\n")  # normal behaviour of enter key
+			view.insert(edit,point,"\\\\\n")  # normal behaviour of enter key
 
 
 
