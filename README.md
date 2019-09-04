@@ -99,6 +99,10 @@ The plugin [mathhelper.py](https://github.com/WeixuanZ/ST-LaTeX/blob/master/math
         "key": "selector",
         "operator": "equal",
         "operand": "text.tex.latex meta.environment.math.block.be.latex"
+      },
+      { "key": "auto_complete_visible", 
+        "operator": "equal", 
+        "operand": false 
       }
     ]
   }
