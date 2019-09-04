@@ -121,7 +121,7 @@ class FractionCommand(sublime_plugin.TextCommand):
 
 
 
-# Automatically wrap lines begin with two or more letters with \intertext{} command in align environments
+# Automatically wrap lines begin with two or more letters with \intertext{} command and add \\ at the end of other lines with an equal sign in align environments
 # Map enter to this command, and use ChainOfCommands plugin to add reindent command afterwards
 
 class AlignEnterCommand(sublime_plugin.TextCommand):

@@ -116,5 +116,5 @@ The plugin [mathhelper.py](https://github.com/WeixuanZ/ST-LaTeX/blob/master/math
 `(((((\})([A-Za-z]|\d)+(\{)|(\d|[A-Za-z]))(\^|_))|(\)([A-Za-z]|\d)+\()|(}([A-Za-z]|\d)+{))*([A-Za-z]+)(\\)?([A-Za-z]?)(\d*)|(\d+))(\-?)`
   ![](image.png)
   
-* Automatically wrap lines begin with two or more letters with `\intertext{}` command in _align_ environments
-  For autoindent to work as expected, need the [_ChainOfCommand_](https://github.com/jisaacks/ChainOfCommand) plugin and add "reindent" macro after calling "intertext"
+* Automatically wrap lines begin with two or more letters with `\intertext{}` command and add `\\` at the end of other lines containing an equal sign in _align_ environments
+  For autoindent to work as expected, need the [_ChainOfCommand_](https://github.com/jisaacks/ChainOfCommand) plugin and add "reindent" macro after calling "intertext". Note that the `auto_complete_visible` key is used to ensure autocompletion can be selected when visible.
