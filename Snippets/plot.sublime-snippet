@@ -6,7 +6,7 @@
 	\begin{axis}[
 		xmin= ${2:-10}, xmax= ${3:10},
 		ymin= ${4:-10}, ymax = ${5:10},
-		xlabel= {$6}, ylabel = {$7}
+		xlabel= {$6}, ylabel = {$7},
 		axis lines = middle,
 	]
 	\addplot[domain=$2:$3, samples=200]{$8};
