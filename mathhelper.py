@@ -32,12 +32,13 @@ class SscriptCommand(sublime_plugin.TextCommand):
 			sscript_region = sublime.Region(point-len(sscript),point)
 			view.erase(edit, sscript_region)
 			snippet = "{" + sscript + "} $0"
+			sublime.status_message("Subscript or superscript formatted")
 			
 		else:
 			snippet = " "
 		
 		view.run_command("insert_snippet", {'contents' : snippet})
-		sublime.status_message("Subscript or superscript formatted")
+
 
 
 
