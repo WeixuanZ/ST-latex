@@ -118,3 +118,30 @@ The plugin [mathhelper.py](https://github.com/WeixuanZ/ST-LaTeX/blob/master/math
   
 * Automatically wrap lines begin with two or more letters with `\intertext{}` command and add `\\` at the end of other lines containing an equal sign in _align_ environments
   For autoindent to work as expected, need the [_ChainOfCommand_](https://github.com/jisaacks/ChainOfCommand) plugin and add "reindent" macro after calling "intertext". Note that the `auto_complete_visible` key is used to ensure autocompletion can be selected when visible.
+
+
+# Other Bits
+
+Add the following code into the `contexts` of the LaTeX syntax file to enable Python code highlighting inside _pythontex_ environments/commands
+```YAML
+  # pythontex package
+  pythontex:
+    - match: ((\\)begin)(\{)((pycode)|(pyblock)|(pyverbatim)|(pysub)|(sympycode)|(sympyblock)|(sympyverbatim)|(sympysub))(\})
+      captures:
+        1: support.function.begin.latex keyword.control.flow.begin.latex
+        2: punctuation.definition.backslash.latex
+        3: punctuation.definition.group.brace.begin.latex
+        4: variable.parameter.function.latex
+        13: punctuation.definition.group.brace.end.latex
+      embed: scope:source.python
+      embed_scope: meta.environment.embedded.python.latex source.python.embedded
+      escape: '(?=\\end\{((pycode)|(pyblock)|(pyverbatim)|(pysub)|(sympycode)|(sympyblock)|(sympyverbatim)|(sympysub))\})'
+    
+    - match: (\\)((py)|(pyc)|(pyb)|(pyv)|(pys))\b
+      captures:
+        0: support.function.general.latex
+        1: punctuation.definition.backslash.latex
+      embed: scope:source.python
+      embed_scope: meta.environment.embedded.python.latex source.python.embedded
+      escape: '\}'
+```
