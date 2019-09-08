@@ -122,6 +122,7 @@ The plugin [mathhelper.py](https://github.com/WeixuanZ/ST-LaTeX/blob/master/math
 
 # Other Bits
 
+## Python code highlighting
 Add the following code into the `contexts` of the LaTeX syntax file to enable Python code highlighting inside _pythontex_ environments/commands
 ```YAML
   # pythontex package
@@ -144,4 +145,13 @@ Add the following code into the `contexts` of the LaTeX syntax file to enable Py
       embed: scope:source.python
       embed_scope: meta.environment.embedded.python.latex source.python.embedded
       escape: '\}'
+```
+
+## Auto update using _latexmk_
+Create a new builder with the following contents, and place the [.latexmkrc](https://github.com/WeixuanZ/ST-LaTeX/blob/master/.latexmkrc) in the working directory
+```JSON
+{
+  "shell_cmd": "latexmk -cd -pvc -pdf -synctex=1 -interaction=nonstopmode $file",
+  "selector": "text.tex.latex"
+}
 ```
