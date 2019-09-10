@@ -1,0 +1,4 @@
+{
+	"shell_cmd": "latexmk -cd -pvc -pdf -synctex=1 -interaction=nonstopmode \"$file\"",
+	"selector": "text.tex.latex"
+}
