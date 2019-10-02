@@ -1,0 +1,15 @@
+{
+    "action_inc_all":  1,
+    "action_dec_all": -1,
+    "action_ins_all":  1,
+    "user_enums": [
+        // toggle begin and end of commands
+        ["begin", "end"],
+        // change section types
+        ["subparagraph", "paragraph", "subsubsection", "subsection", "section", "chapter", "part"],
+        // increase/decrese the font-size
+        ["tiny", "scriptsize", "footnotesize", "small", "normalsize", "large", "Large", "LARGE", "huge", "Huge"],
+        //manim
+        ["UP","DOWN","LEFT","RIGHT"]
+    ]
+}
