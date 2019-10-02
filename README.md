@@ -155,3 +155,9 @@ Create a new builder with the following contents, and place the [.latexmkrc](htt
   "selector": "text.tex.latex"
 }
 ```
+
+## Using other plugins
+
+* _BracketHighlighter_ is customised so that `\left(` and `\right)` are highlighted
+* Use _TodoReview_ to display TODOs in the form of `%TODO <text>`
+* Use _Inc_dec_value_ to cycle through text-size commands (e.g. `tiny`, `normalsize`, `large`)
