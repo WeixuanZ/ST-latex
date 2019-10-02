@@ -1,0 +1,71 @@
+{
+	    "user_scope_brackets": [
+        {
+            "name": "latexmath_block",
+            "open": "((?<!\\\\)\\$\\$)",
+            "close": "((?<!\\\\)\\$\\$)",
+            "style": "default",
+            "scopes": ["text.tex.latex meta.environment.math"],
+            "sub_bracket_search": true,
+            "enabled": true
+        }
+    ],
+
+    "user_brackets": [
+        {
+            "name": "latexmath_angle",
+            "open": "(\\\\langle)",
+            "close": "(\\\\rangle)",
+            "style": "default",
+            "language_filter": "whitelist",
+            "language_list": ["LaTeX"],
+            "scope_exclude": ["comment"],
+            "find_in_sub_search": true,
+            "enabled": true
+        },
+        {
+            "name": "latexmath_leftright",
+            "open": "(\\\\left(?:[()\\[\\]|]|\\\\[{}|]|\\\\[a-zA-Z]+))",
+            "close": "(\\\\right(?:[()\\[\\]|]|\\\\[{}|]|\\\\[a-zA-Z]+))",
+            "style": "round",
+            "language_filter": "whitelist",
+            "language_list": ["LaTeX"],
+            "scope_exclude": ["comment"],
+            "find_in_sub_search": true,
+            "enabled": true
+        },
+        {
+            "name": "latexmath_square",
+            "open": "((?<!\\\\)\\\\\\[)",
+            "close": "((?<!\\\\)\\\\\\])",
+            "style": "square",
+            "language_filter": "whitelist",
+            "language_list": ["LaTeX"],
+            "scope_exclude": ["comment"],
+            "find_in_sub_search": true,
+            "enabled": true
+        },
+        {
+            "name": "latexmath_curly",
+            "open": "((?<!\\\\)\\\\\\{)",
+            "close": "((?<!\\\\)\\\\\\})",
+            "style": "curly",
+            "language_filter": "whitelist",
+            "language_list": ["LaTeX"],
+            "scope_exclude": ["comment"],
+            "find_in_sub_search": true,
+            "enabled": true
+        },
+        {
+            "name": "latexmath_round",
+            "open": "((?<!\\\\)\\\\\\()",
+            "close": "((?<!\\\\)\\\\\\))",
+            "style": "round",
+            "language_filter": "whitelist",
+            "language_list": ["LaTeX"],
+            "scope_exclude": ["comment"],
+            "find_in_sub_search": true,
+            "enabled": true
+        }
+    ]
+}
