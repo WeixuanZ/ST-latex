@@ -752,7 +752,7 @@ contexts:
 
   # pythontex package
   pythontex:
-    - match: ((\\)begin)(\{)((pycode)|(pyblock)|(pyverbatim)|(pysub)|(sympycode)|(sympyblock)|(sympyverbatim)|(sympysub))(\})
+    - match: ((\\)begin)(\{)((pycode)|(pyblock)|(pyverbatim)|(pysub)|(sympycode)|(sympyblock)|(sympyverbatim)|(sympysub)|(pyconsole)|(sympyconsole)|(pylabcode))(\})
       captures:
         1: support.function.begin.latex keyword.control.flow.begin.latex
         2: punctuation.definition.backslash.latex
@@ -761,9 +761,9 @@ contexts:
         13: punctuation.definition.group.brace.end.latex
       embed: scope:source.python
       embed_scope: meta.environment.embedded.python.latex source.python.embedded
-      escape: '(?=\\end\{((pycode)|(pyblock)|(pyverbatim)|(pysub)|(sympycode)|(sympyblock)|(sympyverbatim)|(sympysub))\})'
+      escape: '(?=\\end\{((pycode)|(pyblock)|(pyverbatim)|(pysub)|(sympycode)|(sympyblock)|(sympyverbatim)|(sympysub)|(pyconsole)|(sympyconsole)|(pylabcode))\})'
     
-    - match: (\\)((py)|(pyc)|(pyb)|(pyv)|(pys))\b
+    - match: (\\)((py)|(pyc)|(pyb)|(pyv)|(pys)|(sympy))\b
       captures:
         0: support.function.general.latex
         1: punctuation.definition.backslash.latex
@@ -771,6 +771,18 @@ contexts:
       embed_scope: meta.environment.embedded.python.latex source.python.embedded
       escape: '\}'
 
+    ## Another implementation
+    # - match: ((\\)begin)(\{)((pycode)|(pyblock)|(pyverbatim)|(pysub)|(sympycode)|(sympyblock)|(sympyverbatim)|(sympysub))(\})
+    #   captures:
+    #     1: support.function.begin.latex keyword.control.flow.begin.latex
+    #     2: punctuation.definition.backslash.latex
+    #     3: punctuation.definition.group.brace.begin.latex
+    #     4: variable.parameter.function.latex
+    #     13: punctuation.definition.group.brace.end.latex
+    #   push: Packages/Python/Python.sublime-syntax
+    #   with_prototype:
+    #     - match: (?=\\end\{((pycode)|(pyblock)|(pyverbatim)|(pysub)|(sympycode)|(sympyblock)|(sympyverbatim)|(sympysub))\})
+    #       pop: true
 
 
 
