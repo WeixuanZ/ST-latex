@@ -9,7 +9,7 @@
     "command": "align_tab",
     "caption": "Align Tabular",
     "args": {
-      "user_input": "\\&"
+      "user_input": "(?<!\\\\)&|\\\\\\\\"
     },
     "context": [
       {
@@ -123,7 +123,7 @@
     "args": {
       "commands": [
         [
-          "intertext"
+          "align_enter"
         ],
         [
           "reindent"
@@ -269,7 +269,7 @@
       {
         "key": "preceding_text",
         "operator": "regex_contains",
-        "operand": "\\s*\\\\draw\\s*\\(\\d+,\\d+\\)\\s*circle",
+        "operand": "\\s*\\\\draw\\s*\\(.+,.+\\)\\s*circle$",
         "match_all": true
       },
       {
@@ -303,7 +303,7 @@
       {
         "key": "preceding_text",
         "operator": "regex_contains",
-        "operand": "\\s*\\\\draw\\s*\\(\\d+,\\d+\\)\\s*arc",
+        "operand": "\\s*\\\\draw\\s*\\(.+,.+\\)\\s*arc$",
         "match_all": true
       },
       {
@@ -314,6 +314,40 @@
       }
     ]
   },
+  {
+    "keys": [
+      " "
+    ],
+    "command": "chain",
+    "args": {
+      "commands": [
+        [
+          "insert_snippet",
+          {
+            "contents": " ($1,$2);$0"
+          }
+        ]
+      ]
+    },
+    "context": [
+      {
+        "key": "selector",
+        "operand": "text.tex.latex"
+      },
+      {
+        "key": "preceding_text",
+        "operator": "regex_contains",
+        "operand": "\\s*\\\\draw\\s*\\(.+,.+\\)\\s*--$",
+        "match_all": true
+      },
+      {
+        "key": "selection_empty",
+        "operator": "equal",
+        "operand": true,
+        "match_all": true
+      }
+    ]
+  }
 
   // //snippets
   // {
